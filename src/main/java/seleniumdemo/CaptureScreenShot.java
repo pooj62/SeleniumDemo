@@ -7,33 +7,32 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CaptureScreenShot {
 
 	public static void main(String[] args) {
-		
+
 		WebDriver driver = new ChromeDriver();
-		
+
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-		
+
 		driver.get("https://www.nopcommerce.com/en/demo");
-		
+
 		driver.manage().window().maximize();
-		
+
 		//full page screenshot
 		TakesScreenshot ts = (TakesScreenshot)driver;
-		
+
 		File sourcefile = ts.getScreenshotAs(OutputType.FILE);
-		
-		//The path to this file is constructed using System.getProperty("user.dir"), which retrieves the current working 
-		//directory of the project. 
+
+		//The path to this file is constructed using System.getProperty("user.dir"), which retrieves the current working
+		//directory of the project.
 		File targetfile = new File(System.getProperty("user.dir")+"\\Screenshots\\fullpage.png");
-		//Create an object of the File class 
-		
+		//Create an object of the File class
+
 		boolean flag =sourcefile.renameTo(targetfile);
-		
-		if(flag==true) {
+
+		if(flag) {
 			System.out.println("File successfully rename");
 		}
 		else {

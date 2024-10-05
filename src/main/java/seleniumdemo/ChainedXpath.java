@@ -9,19 +9,19 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class ChainedXpath {
 
 	public static void main(String[] args) {
-		
+
 		WebDriver driver = new ChromeDriver();
-		
+
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		
+
 		driver.manage().window().maximize();
-		
+
 		driver.get("https://demo.opencart.com/");
-		
+
 		boolean logo = driver.findElement(By.xpath("//div[@id='logo']/a/img")).isDisplayed();
-		
+
 		System.out.println(logo);
-		
+
 
 	}
 

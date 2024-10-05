@@ -14,19 +14,19 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class AlertForForgetPassword {
 
 	public static void main(String[] args) {
-		
+
 		System.setProperty("webdriver.chrome.driver","C:\\Users\\hp\\Downloads\\chromedriver-win64\\chromedriver\\chromedriver.exe");
-		
+
 		WebDriver driver = new ChromeDriver();
-		
+
 		driver.get("https://institute.upsidon.com/access/forgot-password");
-		
+
 		driver.manage().window().maximize();
-		
+
 		driver.findElement(By.xpath("//input[@id=\"mat-input-0\"]")).sendKeys("pooja.chaudhary62@gmail.com");
-		
+
 		driver.findElement(By.xpath("//span[@class=\"mat-button-wrapper\"]")).click();
-		
+
 		try {
 		    WebDriverWait wait =  new WebDriverWait(driver, Duration.ofSeconds(30));
 		    wait.until(ExpectedConditions.alertIsPresent());
@@ -39,8 +39,8 @@ public class AlertForForgetPassword {
 		} catch (NoAlertPresentException e) {
 		    System.out.println("No alert present");
 		}
-		
-		
+
+
 
 	}
 
